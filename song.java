@@ -1,4 +1,18 @@
-}
+import java.util.*;
+import java.io.*;
+
+public class song {
+    public static HashMap<String, Integer> sortByValue(HashMap<String, Integer> hm) {
+
+      // Create a list from elements of HashMap
+      List<Map.Entry<String, Integer> > list = new LinkedList<Map.Entry<String, Integer> >(hm.entrySet());
+
+      // Sort the list
+      Collections.sort(list, new java.util.Comparator<Map.Entry<String, Integer> >() {
+      	public int compare(Map.Entry<String, Integer> o1,
+                           Map.Entry<String, Integer> o2) {
+        	return (o2.getValue()).compareTo(o1.getValue());
+        }
       });
 
       // put data from sorted list to hashmap
@@ -32,8 +46,8 @@
                 wordCounts.put(next, wordCounts.get(next) + 1);
             }
         }
-        // Print out put to a text file created on system
-        PrintWriter writer = new PrintWriter("output.txt");
+        //print out put in text file created in computer
+        PrintWriter writer = new PrintWriter("output.doc");
       	
         writer.println("Total words = " + wordCounts.size());
         writer.println("\t");
